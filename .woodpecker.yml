@@ -1,0 +1,10 @@
+steps:
+  - name: frontend
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: youssefj4/demoabb-frontend
+      tags: latest
+    secrets: [ docker_username, docker_password]
+when:
+  branch: main
+  event: push
