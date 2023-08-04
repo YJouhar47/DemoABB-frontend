@@ -1,0 +1,107 @@
+{{page-title "Add a new doctor"}}
+
+<Jumbo>
+  <h2 class="text-5xl ml-5 pt-28">Add a new doctor </h2>
+
+  <form class="mt-20" {{on "submit" this.createDoctor}}>
+
+    <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+        <dt class="mb-2">Name </dt>
+        <dd>
+          <Input
+            @value={{this.newName}}
+            @placeholder="naam"
+            class="inputfield"
+            type="text"
+            required
+          />
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="mb-2">Lastname </dt>
+        <dd>
+          <Input
+            @value={{this.newLastname}}
+            @placeholder="lastname"
+            class="inputfield"
+            type="text"
+            required
+          />
+        </dd>
+      </div>
+    </div>
+
+    <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+        <dt class="mb-2">Street </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newStreet}}
+            @placeholder="straat"
+            type="text"
+            required
+          />
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="mb-2">Housenumber </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newHousenumber}}
+            @placeholder="huisnr"
+            type="number"
+            required
+          />
+        </dd>
+      </div>
+    </div>
+
+    <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+        <dt class="mb-2">Postalcode </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newPostalcode}}
+            @placeholder="postcode"
+            type="number"
+            required
+          />
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="mb-2">City </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{this.newCity}}
+            @placeholder="gemeente"
+            type="text"
+            required
+          />
+        </dd>
+      </div>
+    </div>
+
+    <div class="flex mt-4 justify-between">
+      <div class="flex flex-col mr-6">
+        <dt>Practice :</dt>
+        <dd>
+          <select class="inputfield w-80" {{on "change" this.selectPractice}}>
+            <option value="">Select a practice</option>
+            {{#each this.practices as |practice|}}
+              <option value={{practice.id}}>{{practice.name}}</option>
+            {{/each}}
+          </select>
+        </dd>
+      </div>
+      <button
+        class="mt-6 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-12 rounded"
+        type="submit"
+      >Create</button>
+    </div>
+  </form>
+</Jumbo>

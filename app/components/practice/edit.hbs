@@ -1,0 +1,90 @@
+{{page-title "Edit a practice"}}
+
+<Jumbo>
+  <h2 class="text-5xl ml-5 pt-28"><b>Edit</b> {{@practice.name}} </h2>
+
+  <form class="mt-20" {{on "submit" (fn this.editPractice @practice)}}>
+    <dl>
+      <div class="flex mt-4">
+        <div class="flex flex-col mr-6">
+          <dt class="mb-2">Name </dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{@practice.name}}
+              @placeholder="naam"
+              required
+            />
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="mb-2">Type of practice :</dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{@practice.type}}
+              @placeholder="type"
+              required
+            />
+          </dd>
+        </div>
+      </div>
+
+      <div class="flex mt-4">
+        <div class="flex flex-col mr-6">
+          <dt class="mb-2">Street </dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{@practice.street}}
+              @placeholder="street"
+              required
+            />
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="mb-2">Housenumber</dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{@practice.housenumber}}
+              @placeholder="huisnr"
+              required
+            />
+          </dd>
+        </div>
+      </div>
+
+      <div class="flex mt-4">
+        <div class="flex flex-col mr-6">
+          <dt class="mb-2">Postalcode</dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{@practice.postalcode}}
+              @placeholder="postcode"
+              required
+            />
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="mb-2">City </dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{@practice.city}}
+              @placeholder="gemeente"
+              required
+            />
+          </dd>
+        </div>
+      </div>
+
+    </dl>
+    <button
+      class="w-full mt-6 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-12 rounded"
+      type="submit"
+    >Save</button>
+  </form>
+
+</Jumbo>

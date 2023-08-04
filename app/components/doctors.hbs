@@ -1,0 +1,51 @@
+<div class="rounded-lg w-4/12 mt-4 mb-12 bg-white p-8 space-y-5">
+  <div class="flex flex-row justify-between items-center">
+    <LinkTo @route="doctor" @model={{@doctor}}>
+      <h3 class="text-4xl font-bold ml-4">Dr. {{@doctor.name}}  {{@doctor.lastname}}</h3>
+    </LinkTo>
+    
+    <button
+      class="m-4 bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+      {{on "click" (fn this.removeDoctor @doctor)}}
+    >Remove</button>
+  </div>
+
+  <div class="flex flex-row justify-center bg-white space-x-40 mr-24">
+    <div>
+      <div>
+        <span class="font-bold text-2xl">Street </span>
+        <p class="text-1xl">{{@doctor.street}}</p>
+      </div>
+     
+      <div>
+        <span class="font-bold text-2xl">Postalcode </span>
+        <p class="text-1xl">{{@doctor.postalcode}}</p>
+      </div>
+    </div>
+
+    <div> <!-- Display Street and Postalcode together -->
+       <div>
+        <span class="font-bold text-2xl">Housenumber </span>
+        <p class="text-1xl">{{@doctor.housenumber}}</p>
+      </div>
+      <div>
+        <span class="font-bold text-2xl">City </span>
+        <p class="text-1xl">{{@doctor.city}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 ml-4 bg-white"> <!-- Practice section moved to the bottom -->
+    {{#if @doctor.practice}}
+      <div>
+        <span class="font-bold text-2xl">Practice: </span>
+        <p class="text-1xl">{{@doctor.practice.name}}</p>
+      </div>
+    {{else}}
+      <div class="my-2 font-bold">
+        <span class="font-bold text-2xl">Practice: </span>
+        <p class="text-1xl">No associated practice found.</p>
+      </div>
+    {{/if}}
+  </div>
+</div>

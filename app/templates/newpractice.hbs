@@ -1,0 +1,89 @@
+{{page-title "Add a new practice"}}
+
+<Jumbo>
+  <h2 class="text-5xl ml-5 pt-28">Add a new practice</h2>
+
+  <form class="mt-20" {{on "submit" this.createPractice}}>
+    <dl>
+      <div class="flex mt-4">
+        <div class="flex flex-col mr-6">
+          <dt class="mb-2">Name</dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{this.newName}}
+              @placeholder="naam"
+              type="text"
+              required
+            />
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="mb-2">Type of practice</dt>
+          <dd>
+            <Input
+              class="inputfield"
+              @value={{this.newType}}
+              @placeholder="praktijk"
+              type="text"
+            />
+          </dd>
+        </div>
+      </div>
+
+      <div class="flex mt-4">
+        <div class="flex flex-col mr-6">
+      <dt class="mb-2">Street</dt>
+      <dd>
+        <Input
+          class="inputfield"
+          @value={{this.newStreet}}
+          @placeholder="straat"
+          type="text"
+        />
+      </dd>
+      </div>
+      <div class="flex flex-col">
+      <dt class="mb-2">Housenumber</dt>
+      <dd>
+        <Input
+          class="inputfield"
+          @value={{this.newHousenumber}}
+          @placeholder="huisnr"
+          type="text"
+        />
+      </dd>
+      </div>
+      </div>
+      
+      <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+      <dt class="mb-2">Postalcode</dt>
+      <dd>
+        <Input
+          class="inputfield"
+          @value={{this.newPostalcode}}
+          @placeholder="postcode"
+          type="text"
+        />
+      </dd>
+      </div>
+      <div class="flex flex-col">
+      <dt class="mb-2">City</dt>
+      <dd>
+        <Input
+          class="inputfield"
+          @value={{this.newCity}}
+          @placeholder="gemeente"
+          type="text"
+        />
+      </dd>
+      </div>
+    </div>
+    </dl>
+    <button
+      class="w-full mt-6 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-12 rounded"
+      type="submit"
+    >Create</button>
+  </form>
+</Jumbo>

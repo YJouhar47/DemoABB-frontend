@@ -1,0 +1,97 @@
+{{page-title "Edit your doctor"}}
+
+<Jumbo>
+  <h2 class="text-5xl ml-5 pt-28"><b>Edit</b>
+    {{@doctor.name}}
+    {{@doctor.lastname}}</h2>
+
+  <form class="mt-20" {{on "submit" (fn this.editDoctor @doctor)}}>
+    <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+        <dt class="mb-2">Name </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{@doctor.name}}
+            @placeholder="name"
+          />
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="mb-2">Lastname </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{@doctor.lastname}}
+            @placeholder="lastname"
+          />
+        </dd>
+      </div>
+    </div>
+
+    <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+        <dt class="mb-2">Street </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{@doctor.street}}
+            @placeholder="street"
+          />
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="mb-2">Housenumber </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{@doctor.housenumber}}
+            @placeholder="housenumber"
+          />
+        </dd>
+      </div>
+    </div>
+
+    <div class="flex mt-4">
+      <div class="flex flex-col mr-6">
+        <dt class="mb-2">Postalcode </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{@doctor.postalcode}}
+            @placeholder="postcode"
+          />
+        </dd>
+      </div>
+      <div class="flex flex-col">
+        <dt class="mb-2">City </dt>
+        <dd>
+          <Input
+            class="inputfield"
+            @value={{@doctor.city}}
+            @placeholder="gemeente"
+          />
+        </dd>
+      </div>
+    </div>
+
+    <div class="flex mt-4 justify-between">
+      <div class="flex flex-col mr-6">
+        <dt>Practice</dt>
+        <dd>
+          <select class="inputfield w-80" {{on "change" this.selectPractice}}>
+            <option value="">Select a practice</option>
+            {{#each this.practices as |practice|}}
+              {{practice.name}}
+              <option value={{practice.id}}>{{practice.name}}</option>
+            {{/each}}
+          </select>
+        </dd>
+      </div>
+      <button
+        class="mt-6 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-12 rounded"
+        type="submit"
+      >Save</button>
+    </div>
+  </form>
+</Jumbo>

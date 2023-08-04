@@ -1,0 +1,45 @@
+<div class="rounded-lg w-4/12 mt-4 mb-12 bg-white p-8 space-y-5">
+  <div class="flex flex-row justify-between items-center">
+    <LinkTo @route="practice" @model={{@practice}}>
+      <h3 class="text-4xl font-bold ml-4">{{@practice.name}}</h3>
+    </LinkTo>
+    <button
+      class="m-4 bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+      {{on "click" (fn this.removePractice @practice)}}
+    >Remove</button>
+  </div>
+
+  <div class="flex flex-row justify-center bg-white space-x-40 mr-24">
+    <div>
+      <div>
+        <span class="font-bold text-2xl">Street </span>
+        <p>{{@practice.street}}</p>
+      </div>
+
+      <div>
+        <span class="font-bold text-2xl">Postalcode </span>
+        <p>{{@practice.postalcode}}</p>
+
+      </div>
+
+    </div>
+    <div>
+
+      <div>
+        <span class="font-bold text-2xl">Housenumber </span>
+        <p>{{@practice.housenumber}}</p>
+      </div>
+
+      <div>
+        <span class="font-bold text-2xl">City </span>
+        <p>{{@practice.city}}</p>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="mt-4 ml-4">
+    <span class="font-bold text-2xl">Type </span>
+    <p>{{@practice.type}}</p>
+  </div>
+</div>

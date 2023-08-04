@@ -1,0 +1,30 @@
+<Jumbo>
+  <h2 class="text-5xl font-bold p-6">All Doctors</h2>
+  <span>Which doctor are you looking for ? (Name, Postalcode, City) </span>
+  <Input @value={{this.query}} class="inputfield" />
+
+  <Doctor::Filter
+    @doctors={{@model.doctor}}
+    @query={{this.query}}
+    as |filteredDoctors|
+  >
+    {{#each filteredDoctors as |doctor|}}
+      <Doctors @doctor={{doctor}} />
+    {{/each}}
+  </Doctor::Filter>
+
+  <h2 class="text-5xl font-bold p-6">All Practices</h2>
+
+  <span>Which practice are you looking for ? (Name,Postalcode, City, Type)</span>
+  <Input @value={{this.query1}} class="inputfield" />
+  <Practice::Filter
+    @practices={{@model.practice}}
+    @query={{this.query1}}
+    as |filteredPractices|
+  >
+
+    {{#each filteredPractices as |practice|}}
+      <Practices @practice={{practice}} />
+    {{/each}}
+  </Practice::Filter>
+</Jumbo>
