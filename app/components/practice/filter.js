@@ -9,13 +9,11 @@ export default class PracticesFilterComponent extends Component {
 
       practices = practices.filter((practice) => {
         const name = practice.name.toLowerCase();
-        const postalcode = practice.postalcode.toLowerCase();
         const city = practice.city.toLowerCase();
         const type = practice.type.toLowerCase();
 
         return (
           name.includes(query) ||
-          postalcode.includes(query) ||
           city.includes(query) ||
           type.includes(query)
         );

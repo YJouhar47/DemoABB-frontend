@@ -8,14 +8,12 @@ export default class DoctorsFilterComponent extends Component {
       query = query.toLowerCase();
 
       doctors = doctors.filter((doctor) => {
-        const name = doctor.name.toLowerCase();
-        const postalcode = doctor.postalcode.toLowerCase();
-        const city = doctor.city.toLowerCase();
-        const lastname = doctor.lastname.toLowerCase();
+        const name = (doctor.name).toLowerCase();
+        const city = (doctor.city).toLowerCase();
+        const lastname = (doctor.lastname).toLowerCase();
 
         return (
           name.includes(query) ||
-          postalcode.includes(query) ||
           city.includes(query) ||
           lastname.includes(query)
         );
