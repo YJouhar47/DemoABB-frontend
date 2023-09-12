@@ -2,19 +2,21 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import RouterService from '@ember/routing/router-service'; 
 
 export default class PracticeController extends Controller {
-  @tracked newName;
-  @tracked newStreet;
-  @tracked newHousenumber;
-  @tracked newPostalcode;
-  @tracked newCity;
-  @tracked newType;
+  @tracked newName: string = '';
+  @tracked newStreet: string = '';
+  @tracked newHousenumber: string = '';
+  @tracked newPostalcode: string = '';
+  @tracked newCity: string = '';
+  @tracked newType: string = '';
 
-  @service store;
-  @service router;
+  @service store!: any; 
+  @service router!: RouterService; 
+
   @action
-  createPractice(event) {
+  createPractice(event: Event) {
     event.preventDefault();
 
     const practice = this.store.createRecord('practice', {
@@ -29,6 +31,7 @@ export default class PracticeController extends Controller {
     this.router.transitionTo('/');
     this.clearForm();
   }
+
   clearForm() {
     this.newName = '';
     this.newStreet = '';
