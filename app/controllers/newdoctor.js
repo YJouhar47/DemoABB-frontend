@@ -2,21 +2,19 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import RouterService from '@ember/routing/router-service';
-import Practice from '../models/practice';
 
 export default class DoctorsController extends Controller {
-  @tracked newName: string = '';
-  @tracked newLastname: string = '';
-  @tracked newStreet: string = '';
-  @tracked newHousenumber: string = '';
-  @tracked newPostalcode: string = '';
-  @tracked newCity: string = '';
-  @tracked practices?: Practice;
-  @tracked newPractice?: Practice;
+  @tracked newName;
+  @tracked newLastname
+  @tracked newStreet;
+  @tracked newHousenumber;
+  @tracked newPostalcode;
+  @tracked newCity;
+  @tracked practices;
+  @tracked newPractice;
 
-  @service store !: any;
-  @service router!: RouterService;
+  @service store;
+  @service router;
 
   constructor() {
     super(...arguments);
@@ -33,7 +31,7 @@ export default class DoctorsController extends Controller {
   }
 
   @action
-  async selectPractice(event: any) {
+  async selectPractice(event) {
     const selectedPracticeId = event.target.value;
     this.existingPractice = await this.store.findRecord(
       'practice',
@@ -42,7 +40,7 @@ export default class DoctorsController extends Controller {
   }
 
   @action
-  async createDoctor(event: any) {
+  async createDoctor(event) {
     event.preventDefault();
 
     const doctor = this.store.createRecord('doctor', {
